@@ -5,8 +5,6 @@ import javax.swing.*;
 
 class ToolsColor extends JPanel{
 	ToolsColor(){
-		
-		
 		JButton RedBtn = new JButton("1");
 		RedBtn.setBackground(Color.RED);
 		add(RedBtn);
@@ -104,7 +102,7 @@ public class UI extends JFrame {
 		add(new ToolsColor(), BorderLayout.SOUTH);
 		
 		background.setBackground(Color.WHITE);
-		setSize(700,500);
+		setSize(750,500);
 		setVisible(true);
 	}
 	
