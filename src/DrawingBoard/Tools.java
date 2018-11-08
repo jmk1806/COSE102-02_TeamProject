@@ -11,8 +11,8 @@ public class Tools extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		Container container = getContentPane();
-		JPanel workingArea = new JPanelPencil();
-		JPanel menu = new JPanelMenu(this);
+		JPanel workingArea = new BrushPanel();
+		JPanel menu = new MenuPanel(this);
 
 		container.add(workingArea, BorderLayout.CENTER);
 		container.add(menu, BorderLayout.NORTH);
@@ -30,49 +30,49 @@ public class Tools extends JFrame {
 			switch (e.getKeyChar()) {
 
 			case '1':
-				JPanelPencil.selectedColor=Color.RED;
+				BrushPanel.selectedColor=Color.RED;
 				break;
 
 			case '2':
-				JPanelPencil.selectedColor=Color.ORANGE;
+				BrushPanel.selectedColor=Color.ORANGE;
 				break;
 
 			case '3':
-				JPanelPencil.selectedColor=Color.YELLOW;
+				BrushPanel.selectedColor=Color.YELLOW;
 				break;
 
 			case '4':
-				JPanelPencil.selectedColor=Color.GREEN;
+				BrushPanel.selectedColor=Color.GREEN;
 				break;
 
 			case '5':
-				JPanelPencil.selectedColor=Color.CYAN;
+				BrushPanel.selectedColor=Color.CYAN;
 				break;
 
 			case '6':
-				JPanelPencil.selectedColor=Color.BLUE;
+				BrushPanel.selectedColor=Color.BLUE;
 				break;
 
 			case '7':
-				JPanelPencil.selectedColor=Color.MAGENTA;
+				BrushPanel.selectedColor=Color.MAGENTA;
 				break;
 
 			case '8':
-				JPanelPencil.selectedColor=Color.PINK;
+				BrushPanel.selectedColor=Color.PINK;
 				break;
 
 			case '9':
-				JPanelPencil.selectedColor=Color.LIGHT_GRAY;
+				BrushPanel.selectedColor=Color.LIGHT_GRAY;
 				break;
 
 			case '0':
-				JPanelPencil.selectedColor=Color.GRAY;
+				BrushPanel.selectedColor=Color.GRAY;
 				break;
 			case '-':
-				JPanelPencil.selectedColor=Color.DARK_GRAY;
+				BrushPanel.selectedColor=Color.DARK_GRAY;
 				break;
 			case '=':
-				JPanelPencil.selectedColor=Color.BLACK;
+				BrushPanel.selectedColor=Color.BLACK;
 				break;
 			}
 
@@ -85,7 +85,7 @@ public class Tools extends JFrame {
 	}
 }
 
-class JPanelPencil extends JPanel {
+class BrushPanel extends JPanel {
 	Vector<Point> pointList = new Vector<Point>();
 	static int thickness = 1, size=1;
 
@@ -93,15 +93,15 @@ class JPanelPencil extends JPanel {
 	Graphics g;
 	Graphics2D g2;
 
-	public JPanelPencil() {
+	public BrushPanel() {
 		setBackground(Color.WHITE);
-		NewMouseListener listener = new NewMouseListener();
+		DrawingHandler listener = new DrawingHandler();
 
 		addMouseListener(listener);
 		addMouseMotionListener(listener);
 	}
 
-	class NewMouseListener extends MouseAdapter {
+	class DrawingHandler extends MouseAdapter {
 		public void mousePressed(MouseEvent e) {
 			Point newPoint = e.getPoint();
 			pointList.add(newPoint);
@@ -135,69 +135,70 @@ class JPanelPencil extends JPanel {
 
 }
 
-class JPanelMenu extends JPanel {
-	public JPanelMenu(Tools p) {
+class MenuPanel extends JPanel {
+	public MenuPanel(Tools p) {
 		setBackground(Color.GRAY);
-		JButton ChosenColor=new JButton(" ");
+		JButton chosenColor=new JButton(" ");
 		JButton brushButton = new JButton("Brush");
 		JButton eraserButton = new JButton("Eraser");
 		JButton boldButton = new JButton("Light");
 		
-		add(ChosenColor);
+		add(chosenColor);
 		add(brushButton);
 		add(eraserButton);
 		add(boldButton);
 		
-		brushButton.addActionListener(new ActionListenerBrush(p));
-		eraserButton.addActionListener(new ActionListenerEraser());
-		boldButton.addActionListener(new ActionListenerThickness(p));
+		brushButton.addActionListener(new BrushHandler(p));
+		eraserButton.addActionListener(new EraserHandler());
+		boldButton.addActionListener(new ThicknessHandler(p));
+		chosenColor.setBackground(BrushPanel.selectedColor);
 	}
 	
-	class ActionListenerBrush implements ActionListener{
-		Tools p;
-		public ActionListenerBrush(Tools p) {
-			this.p=p;
+	class BrushHandler implements ActionListener{
+		Tools tools;
+		public BrushHandler(Tools tools) {
+			this.tools=tools;
 		}
 		public void actionPerformed(ActionEvent e) {
-			JPanelPencil.selectedColor=Color.BLACK;
-			p.requestFocus();
+			BrushPanel.selectedColor=Color.BLACK;
+			tools.requestFocus();
 		}
 	}
 	
-	class ActionListenerEraser implements ActionListener{
+	class EraserHandler implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
-			JPanelPencil.selectedColor=Color.WHITE;
+			BrushPanel.selectedColor=Color.WHITE;
 		}
 	}
 
-	class ActionListenerThickness implements ActionListener {
-		Tools p;
-		public ActionListenerThickness(Tools p) {
-			this.p=p;
+	class ThicknessHandler implements ActionListener {
+		Tools tools;
+		public ThicknessHandler(Tools tools) {
+			this.tools=tools;
 		}
 		public void actionPerformed(ActionEvent e) {
 			JButton g = (JButton) e.getSource();
 			if (g.getText().equals("Light")) {
-				JPanelPencil.thickness = 5;
-				JPanelPencil.size=3;
+				BrushPanel.thickness = 5;
+				BrushPanel.size=3;
 				g.setText("Medium");
 				
 			} else if (g.getText().equals("Medium")) {
-				JPanelPencil.thickness = 10;
-				JPanelPencil.size=5;
+				BrushPanel.thickness = 10;
+				BrushPanel.size=5;
 				g.setText("Bold");
 				
 			} else if (g.getText().equals("Bold")) {
-				JPanelPencil.thickness = 20;
-				JPanelPencil.size=10;
+				BrushPanel.thickness = 20;
+				BrushPanel.size=10;
 				g.setText("Extra");
 				
 			} else if (g.getText().equals("Extra")) {
-				JPanelPencil.thickness = 1;
-				JPanelPencil.size=1;
+				BrushPanel.thickness = 1;
+				BrushPanel.size=1;
 				g.setText("Light");
 			}
-			p.requestFocus();
+			tools.requestFocus();
 		}
 	}
 }
