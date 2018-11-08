@@ -5,57 +5,57 @@ import javax.swing.*;
 
 class ToolsColor extends JPanel{
 	ToolsColor(){
-		JButton RedBtn = new JButton("1");
-		RedBtn.setBackground(Color.RED);
-		add(RedBtn);
+		JButton redBtn = new JButton("1");
+		redBtn.setBackground(Color.RED);
+		add(redBtn);
 		
-		JButton OrangeBtn = new JButton("2");
-		OrangeBtn.setBackground(Color.ORANGE);
-		add(OrangeBtn);
+		JButton orangeBtn = new JButton("2");
+		orangeBtn.setBackground(Color.ORANGE);
+		add(orangeBtn);
 		
-		JButton YellowBtn = new JButton("3");
-		YellowBtn.setBackground(Color.YELLOW);
-		add(YellowBtn);
+		JButton yellowBtn = new JButton("3");
+		yellowBtn.setBackground(Color.YELLOW);
+		add(yellowBtn);
 		
-		JButton GreenBtn = new JButton("4");
-		GreenBtn.setBackground(Color.GREEN);
-		add(GreenBtn);
+		JButton greenBtn = new JButton("4");
+		greenBtn.setBackground(Color.GREEN);
+		add(greenBtn);
 		
-		JButton CyanBtn = new JButton("5");
-		CyanBtn.setBackground(Color.CYAN);
-		add(CyanBtn);
+		JButton cyanBtn = new JButton("5");
+		cyanBtn.setBackground(Color.CYAN);
+		add(cyanBtn);
 		
-		JButton BlueBtn = new JButton("6");
-		BlueBtn.setBackground(Color.BLUE);
-		add(BlueBtn);
+		JButton blueBtn = new JButton("6");
+		blueBtn.setBackground(Color.BLUE);
+		add(blueBtn);
 		
-		JButton MagentaBtn = new JButton("7");
-		MagentaBtn.setBackground(Color.MAGENTA);
-		add(MagentaBtn);
+		JButton magentaBtn = new JButton("7");
+		magentaBtn.setBackground(Color.MAGENTA);
+		add(magentaBtn);
 		
-		JButton PinkBtn = new JButton("8");
-		PinkBtn.setBackground(Color.PINK);
-		add(PinkBtn);
+		JButton pinkBtn = new JButton("8");
+		pinkBtn.setBackground(Color.PINK);
+		add(pinkBtn);
 		
-		JButton LiteGrayBtn = new JButton("9");
-		LiteGrayBtn.setBackground(Color.LIGHT_GRAY);
-		add(LiteGrayBtn);
+		JButton litegrayBtn = new JButton("9");
+		litegrayBtn.setBackground(Color.LIGHT_GRAY);
+		add(litegrayBtn);
 		
-		JButton GrayBtn = new JButton("0");
-		GrayBtn.setBackground(Color.GRAY);
-		add(GrayBtn);
+		JButton grayBtn = new JButton("0");
+		grayBtn.setBackground(Color.GRAY);
+		add(grayBtn);
 		
-		JButton DarkGrayBtn = new JButton("-");
-		DarkGrayBtn.setBackground(Color.DARK_GRAY);
-		add(DarkGrayBtn);
+		JButton darkGrayBtn = new JButton("-");
+		darkGrayBtn.setBackground(Color.DARK_GRAY);
+		add(darkGrayBtn);
 		
-		JButton BlackBtn = new JButton("=");
-		BlackBtn.setBackground(Color.BLACK);
-		add(BlackBtn);
+		JButton blackBtn = new JButton("=");
+		blackBtn.setBackground(Color.BLACK);
+		add(blackBtn);
 	}
 }
 
-class MyActionListener implements ActionListener {
+/*class ThicknessHandler implements ActionListener {
 	public void actionPerformed (ActionEvent e) {
 		JButton g = (JButton)e.getSource();
 		if(g.getText().equals("Light"))
@@ -67,16 +67,16 @@ class MyActionListener implements ActionListener {
 		else if(g.getText().equals("Extra"))
 			g.setText("Light");
 	}
-}
+}*/
 
 public class UI extends JFrame {
 	
 	public UI() {
-		JButton BrushButton = new JButton("Brush");
-		JButton EraserButton = new JButton("Eraser");
-		JButton BoldButton = new JButton("Light");
+		JButton brushButton = new JButton("Brush");
+		JButton eraserButton = new JButton("Eraser");
+		JButton boldButton = new JButton("Light");
 		
-		JButton ChosenColor = new JButton(" ");
+		JButton chosenColor = new JButton(" ");
 		/* 필요한 버튼 생성 자리, 추후 추가 예정*/
 		
 		setTitle("컴퓨터프로그래밍2 실습 예제-그림판");
@@ -85,24 +85,24 @@ public class UI extends JFrame {
 		Container background = getContentPane();
 		background.setLayout(new BorderLayout());
 		
-		JPanel MenuPanel = new JPanel();
-		MenuPanel.setBackground(Color.GRAY);
-		MenuPanel.setLayout(new FlowLayout()); // 추후 수정(null)
+		JPanel menuPanel = new JPanel();
+		menuPanel.setBackground(Color.GRAY);
+		menuPanel.setLayout(new FlowLayout()); // 추후 수정(null)
 		
-		MenuPanel.add(ChosenColor); // 현재 선택한 색상
+		menuPanel.add(chosenColor); // 현재 선택한 색상
 	
-		MenuPanel.add(BrushButton);
-		MenuPanel.add(EraserButton);
+		menuPanel.add(brushButton);
+		menuPanel.add(eraserButton);
 				
-		BoldButton.addActionListener(new MyActionListener());
-		MenuPanel.add(BoldButton);
-		add(MenuPanel,BorderLayout.NORTH);
+		boldButton.addActionListener(new ThicknessHandler());
+		menuPanel.add(boldButton);
+		add(menuPanel,BorderLayout.NORTH);
 		/* UI Design후 코드 추가 예정(버튼 배치) */
 		
 		add(new ToolsColor(), BorderLayout.SOUTH);
 		
-		JPanel PaintPanel = new JPanel();
-		add(PaintPanel, BorderLayout.CENTER);
+		JPanel paintPanel = new JPanel();
+		add(paintPanel, BorderLayout.CENTER);
 		
 		background.setBackground(Color.WHITE);
 		setSize(750,500);
