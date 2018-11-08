@@ -99,10 +99,10 @@ public class UI extends JFrame {
 		add(MenuPanel,BorderLayout.NORTH);
 		/* UI Design후 코드 추가 예정(버튼 배치) */
 		
+		add(new ToolsColor(), BorderLayout.SOUTH);
+		
 		JPanel PaintPanel = new JPanel();
 		add(PaintPanel, BorderLayout.CENTER);
-		
-		add(new ToolsColor(), BorderLayout.SOUTH);
 		
 		background.setBackground(Color.WHITE);
 		setSize(750,500);
