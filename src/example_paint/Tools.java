@@ -6,33 +6,33 @@ import javax.swing.*;
 import java.util.Vector;
 import java.awt.geom.*;
 
-public class Tools extends JFrame {
-	public Tools() {
-		setTitle("Paint");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		Container container = getContentPane();
-		JPanel workingArea = new BrushPanel();
-		JPanel menu = new MenuPanel(this);
-
-		container.add(workingArea, BorderLayout.CENTER);
-		container.add(menu, BorderLayout.NORTH);
-
-		addKeyListener(new ColorHandler());
-
-		setFocusable(true);
-		requestFocus();
-
-		setSize(1000, 700);
-		setVisible(true);
-	}
-
-	
-
-	public static void main(String[] args) {
-		new Tools();
-	}
-}
+//public class Tools extends JFrame {
+//	public Tools() {
+//		setTitle("Paint");
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//
+//		Container container = getContentPane();
+//		JPanel workingArea = new BrushPanel();
+//		JPanel menu = new MenuPanel(this);
+//
+//		container.add(workingArea, BorderLayout.CENTER);
+//		container.add(menu, BorderLayout.NORTH);
+//
+//		addKeyListener(new ColorHandler());
+//
+//		setFocusable(true);
+//		requestFocus();
+//
+//		setSize(1000, 700);
+//		setVisible(true);
+//	}
+//
+//	
+//
+//	public static void main(String[] args) {
+//		new Tools();
+//	}
+//}
 
 class BrushPanel extends JPanel {
 	Vector<Point> pointList = new Vector<Point>();
@@ -85,73 +85,68 @@ class BrushPanel extends JPanel {
 
 }
 
-class MenuPanel extends JPanel {
-	public MenuPanel(Tools tools) {
-		setBackground(Color.GRAY);
-		JButton chosenColor = new JButton(" ");
-		JButton brushBtn = new JButton("Brush");
-		JButton eraserBtn = new JButton("Eraser");
-		JButton boldBtn = new JButton("Light");
+//class MenuPanel extends JPanel {
+//	public MenuPanel(Tools tools) {
+//		setBackground(Color.GRAY);
+//		JButton chosenColor = new JButton(" ");
+//		JButton brushBtn = new JButton("Brush");
+//		JButton eraserBtn = new JButton("Eraser");
+//		JButton boldBtn = new JButton("Light");
+//
+//		add(chosenColor);
+//		add(brushBtn);
+//		add(eraserBtn);
+//		add(boldBtn);
+//
+//		brushBtn.addActionListener(new BrushHandler(tools));
+//		eraserBtn.addActionListener(new EraserHandler());
+//		boldBtn.addActionListener(new ThicknessHandler(tools));
+//	}
 
-		add(chosenColor);
-		add(brushBtn);
-		add(eraserBtn);
-		add(boldBtn);
+//	class BrushHandler implements ActionListener {
+//		Tools tools;
+//
+//		public BrushHandler(Tools tools) {
+//			this.tools = tools;
+//		}
+//
+//		public void actionPerformed(ActionEvent e) {
+//			BrushPanel.selectedColor = Color.BLACK;
+//			tools.requestFocus();
+//		}
+//	}
 
-		brushBtn.addActionListener(new BrushHandler(tools));
-		eraserBtn.addActionListener(new EraserHandler());
-		boldBtn.addActionListener(new ThicknessHandler(tools));
-	}
 
-	class BrushHandler implements ActionListener {
-		Tools tools;
-
-		public BrushHandler(Tools tools) {
-			this.tools = tools;
-		}
-
-		public void actionPerformed(ActionEvent e) {
-			BrushPanel.selectedColor = Color.BLACK;
-			tools.requestFocus();
-		}
-	}
-
-	class EraserHandler implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			BrushPanel.selectedColor = Color.WHITE;
-		}
-	}
-
-class ThicknessHandler implements ActionListener {
-		Tools tools;
-
-		public ThicknessHandler(Tools tools) {
-			this.tools = tools;
-		}
-
-		public void actionPerformed(ActionEvent e) {
-			JButton button = (JButton) e.getSource();
-			if (button.getText().equals("Light")) {
-				BrushPanel.thickness = 5;
-				BrushPanel.size = 3;
-				button.setText("Medium");
-
-			} else if (button.getText().equals("Medium")) {
-				BrushPanel.thickness = 10;
-				BrushPanel.size = 5;
-				button.setText("Bold");
-
-			} else if (button.getText().equals("Bold")) {
-				BrushPanel.thickness = 20;
-				BrushPanel.size = 10;
-				button.setText("Extra");
-
-			} else if (button.getText().equals("Extra")) {
-				BrushPanel.thickness = 1;
-				BrushPanel.size = 1;
-				button.setText("Light");
-			}
-			tools.requestFocus();
-		}
-	}
-}
+//class ThicknessHandler implements ActionListener {
+//		Tools tools;
+//
+//		public ThicknessHandler(Tools tools) {
+//			this.tools = tools;
+//		}
+//
+//		public void actionPerformed(ActionEvent e) {
+//			JButton button = (JButton) e.getSource();
+//			if (button.getText().equals("Light")) {
+//				BrushPanel.thickness = 5;
+//				BrushPanel.size = 3;
+//				button.setText("Medium");
+//
+//			} else if (button.getText().equals("Medium")) {
+//				BrushPanel.thickness = 10;
+//				BrushPanel.size = 5;
+//				button.setText("Bold");
+//
+//			} else if (button.getText().equals("Bold")) {
+//				BrushPanel.thickness = 20;
+//				BrushPanel.size = 10;
+//				button.setText("Extra");
+//
+//			} else if (button.getText().equals("Extra")) {
+//				BrushPanel.thickness = 1;
+//				BrushPanel.size = 1;
+//				button.setText("Light");
+//			}
+//			tools.requestFocus();
+//		}
+//	}
+//}
