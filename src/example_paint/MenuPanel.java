@@ -1,25 +1,33 @@
 package example_paint;
 
-import java.awt.Color;
-import java.awt.FlowLayout;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
-import javax.swing.JButton;
-import javax.swing.JPanel;
+public class MenuPanel extends JPanel {
+    public JButton chosenColor;
+    public JButton brushBtn;
+    public JButton eraserBtn;
+    public JButton thicknessBtn;
 
-class MenuPanel extends JPanel{
-	public MenuPanel(){
-		JButton brushBtn = new JButton("Brush");
-		JButton eraserBtn = new JButton("Eraser");
-		JButton boldBtn = new JButton("Light");
-		JButton chosenColor = new JButton(" ");
-		
-		setBackground(Color.GRAY);
-		setLayout(new FlowLayout());
-		
-		add(chosenColor);
-		add(brushBtn);
-		add(boldBtn);
-		add(eraserBtn);
-		boldBtn.addActionListener(new ThicknessHandler());
-	}
+    public MenuPanel(MainFrame mainFrame) {
+        chosenColor = new JButton(" ");
+        chosenColor.setBackground(Color.BLACK);
+
+        brushBtn = new JButton("Brush");
+        eraserBtn = new JButton("Eraser");
+        thicknessBtn = new JButton("Light");
+
+        this.setBackground(Color.GRAY);
+        this.setLayout(new FlowLayout());
+
+        brushBtn.addActionListener(new BrushHandler(this, mainFrame.brushPanel));
+        eraserBtn.addActionListener(new BrushHandler(this, mainFrame.brushPanel));
+        thicknessBtn.addActionListener(new ThicknessHandler(mainFrame));
+
+        this.add(chosenColor);
+        this.add(brushBtn);
+        this.add(eraserBtn);
+        this.add(thicknessBtn);
+    }
 }
