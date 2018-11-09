@@ -1,4 +1,4 @@
-package DrawingBoard;
+package example_paint;
 
 public class StartProgram {
 

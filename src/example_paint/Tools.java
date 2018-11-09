@@ -1,4 +1,4 @@
-package DrawingBoard;
+package example_paint;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -142,18 +142,18 @@ class MenuPanel extends JPanel {
 	public MenuPanel(Tools tools) {
 		setBackground(Color.GRAY);
 		JButton chosenColor = new JButton(" ");
-		JButton brushButton = new JButton("Brush");
-		JButton eraserButton = new JButton("Eraser");
-		JButton boldButton = new JButton("Light");
+		JButton brushBtn = new JButton("Brush");
+		JButton eraserBtn = new JButton("Eraser");
+		JButton boldBtn = new JButton("Light");
 
 		add(chosenColor);
-		add(brushButton);
-		add(eraserButton);
-		add(boldButton);
+		add(brushBtn);
+		add(eraserBtn);
+		add(boldBtn);
 
-		brushButton.addActionListener(new BrushHandler(tools));
-		eraserButton.addActionListener(new EraserHandler());
-		boldButton.addActionListener(new ThicknessHandler(tools));
+		brushBtn.addActionListener(new BrushHandler(tools));
+		eraserBtn.addActionListener(new EraserHandler());
+		boldBtn.addActionListener(new ThicknessHandler(tools));
 	}
 
 	class BrushHandler implements ActionListener {

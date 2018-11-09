@@ -1,4 +1,4 @@
-package DrawingBoard;
+package example_paint;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -72,9 +72,9 @@ class ThicknessHandler implements ActionListener {
 public class UI extends JFrame {
 	
 	public UI() {
-		JButton brushButton = new JButton("Brush");
-		JButton eraserButton = new JButton("Eraser");
-		JButton boldButton = new JButton("Light");
+		JButton brushBtn = new JButton("Brush");
+		JButton eraserBtn = new JButton("Eraser");
+		JButton boldBtn = new JButton("Light");
 		
 		JButton chosenColor = new JButton(" ");
 		/* 필요한 버튼 생성 자리, 추후 추가 예정*/
@@ -91,11 +91,11 @@ public class UI extends JFrame {
 		
 		menuPanel.add(chosenColor); // 현재 선택한 색상
 	
-		menuPanel.add(brushButton);
-		menuPanel.add(eraserButton);
+		menuPanel.add(brushBtn);
+		menuPanel.add(eraserBtn);
 				
-		boldButton.addActionListener(new ThicknessHandler());
-		menuPanel.add(boldButton);
+		boldBtn.addActionListener(new ThicknessHandler());
+		menuPanel.add(boldBtn);
 		add(menuPanel,BorderLayout.NORTH);
 		/* UI Design후 코드 추가 예정(버튼 배치) */
 		
