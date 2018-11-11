@@ -20,5 +20,7 @@ public class BrushHandler implements ActionListener {
         } else {
             brushPanel.setColor(Color.WHITE);
         }
+        
+        
     }
 }

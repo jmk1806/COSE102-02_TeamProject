@@ -2,9 +2,14 @@ package example_paint;
 
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 
 public class ColorPanel extends JPanel {
-    public ColorPanel() {
+	private MainFrame mainFrame;
+	
+	public ColorPanel(MainFrame mainFrame) {
+		this.mainFrame = mainFrame;
+		
         JButton redBtn = new JButton("1");
         redBtn.setBackground(Color.RED);
 
@@ -47,5 +52,6 @@ public class ColorPanel extends JPanel {
                                 };
 
         for (JButton button:buttonList) this.add(button);
+        for (JButton button:buttonList) button.addActionListener(new ColorMouseHandler(mainFrame));
     }
 }

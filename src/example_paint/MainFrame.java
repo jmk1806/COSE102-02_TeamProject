@@ -6,7 +6,8 @@ import javax.swing.*;
 public class MainFrame extends JFrame {
     BrushPanel brushPanel;
     MenuPanel menuPanel;
-
+    ColorPanel colorPanel;
+    
     public MainFrame() {
         this.setTitle("Paint Example");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -16,15 +17,14 @@ public class MainFrame extends JFrame {
 
         brushPanel = new BrushPanel();
         menuPanel = new MenuPanel(this);
-
+        colorPanel = new ColorPanel(this);
         this.add(menuPanel, BorderLayout.NORTH);
-        this.add(new ColorPanel(), BorderLayout.SOUTH);
+        this.add(colorPanel, BorderLayout.SOUTH);
         this.add(brushPanel, BorderLayout.CENTER);
 
         backgroundPanel.setBackground(Color.WHITE);
 
         this.addKeyListener(new ColorKeyHandler(this));
-
         this.setSize(750, 500);
         this.setVisible(true);
 
