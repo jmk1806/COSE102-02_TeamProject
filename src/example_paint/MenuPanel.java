@@ -1,7 +1,6 @@
 package example_paint;
 
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 
 public class MenuPanel extends JPanel {
@@ -21,8 +20,8 @@ public class MenuPanel extends JPanel {
         this.setBackground(Color.GRAY);
         this.setLayout(new FlowLayout());
 
-        brushBtn.addActionListener(new BrushHandler(this, mainFrame.brushPanel));
-        eraserBtn.addActionListener(new BrushHandler(this, mainFrame.brushPanel));
+        brushBtn.addActionListener(new BrushHandler(mainFrame));
+        eraserBtn.addActionListener(new BrushHandler(mainFrame));
         thicknessBtn.addActionListener(new ThicknessHandler(mainFrame));
 
         this.add(chosenColor);

@@ -1,26 +1,26 @@
 package example_paint;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
 
 public class BrushHandler implements ActionListener {
-    public MenuPanel menuPanel;
-    public BrushPanel brushPanel;
 
-    public BrushHandler(MenuPanel menuPanel, BrushPanel brushPanel) {
-        this.menuPanel = menuPanel;
-        this.brushPanel = brushPanel;
+	private MainFrame mainFrame;
+	
+    public BrushHandler(MainFrame mainFrame) {
+    	this.mainFrame= mainFrame;
     }
 
     public void actionPerformed(ActionEvent e) {
         if (((JButton)e.getSource()).getText().equals("Brush")) {
-            Color backgroundColor = menuPanel.chosenColor.getBackground();
-            brushPanel.setColor(backgroundColor);
+            Color backgroundColor = mainFrame.menuPanel.chosenColor.getBackground();
+            mainFrame.brushPanel.setColor(backgroundColor);
         } else {
-            brushPanel.setColor(Color.WHITE);
+            mainFrame.brushPanel.setColor(Color.WHITE);
         }
-        
+       mainFrame.setFocusable(true);
+       mainFrame.requestFocus();
         
     }
 }
