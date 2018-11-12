@@ -33,17 +33,17 @@ public class BrushPanel extends JPanel {
 
         this.addMouseMotionListener(new MouseAdapter() {
             public void mouseDragged(MouseEvent e) {
-                Graphics graphics = getGraphics();
-                Graphics2D graphics2D = (Graphics2D)graphics;
+            Graphics graphics = getGraphics();
+            Graphics2D graphics2D = (Graphics2D)graphics;
 
-                pointVector.add(e.getPoint());
+            pointVector.add(e.getPoint());
 
-                Point startPoint = pointVector.elementAt(pointVector.size() - 2);
-                Point endPoint = pointVector.elementAt(pointVector.size() - 1);
+            Point startPoint = pointVector.elementAt(pointVector.size() - 2);
+            Point endPoint = pointVector.elementAt(pointVector.size() - 1);
 
-                graphics.setColor(brushColor);
-                graphics2D.setStroke(new BasicStroke(thickness, BasicStroke.CAP_ROUND, BasicStroke.JOIN_MITER));
-                graphics2D.draw(new Line2D.Double(startPoint.getX(), startPoint.getY(), endPoint.getX(), endPoint.getY()));
+            graphics.setColor(brushColor);
+            graphics2D.setStroke(new BasicStroke(thickness, BasicStroke.CAP_ROUND, BasicStroke.JOIN_MITER));
+            graphics2D.draw(new Line2D.Double(startPoint.getX(), startPoint.getY(), endPoint.getX(), endPoint.getY()));
             }
         });
     }

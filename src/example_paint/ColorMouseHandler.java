@@ -16,7 +16,7 @@ public class ColorMouseHandler implements ActionListener{
 
         mainFrame.brushPanel.setColor(newColor);
         mainFrame.menuPanel.chosenColor.setBackground(newColor);
-        
+
         mainFrame.requestFocus();
     }
 }
