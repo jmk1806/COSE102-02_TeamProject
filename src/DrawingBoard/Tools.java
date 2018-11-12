@@ -27,69 +27,70 @@ public class Tools extends JFrame {
 		setVisible(true);
 	}
 
-	class ColorHandler extends KeyAdapter {
-		public void keyPressed(KeyEvent e) {
-			switch (e.getKeyChar()) {
-
-			case '1':
-				BrushPanel.selectedColor = Color.RED;
-				break;
-
-			case '2':
-				BrushPanel.selectedColor = Color.ORANGE;
-				break;
-
-			case '3':
-				BrushPanel.selectedColor = Color.YELLOW;
-				break;
-
-			case '4':
-				BrushPanel.selectedColor = Color.GREEN;
-				break;
-
-			case '5':
-				BrushPanel.selectedColor = Color.CYAN;
-				break;
-
-			case '6':
-				BrushPanel.selectedColor = Color.BLUE;
-				break;
-
-			case '7':
-				BrushPanel.selectedColor = Color.MAGENTA;
-				break;
-
-			case '8':
-				BrushPanel.selectedColor = Color.PINK;
-				break;
-
-			case '9':
-				BrushPanel.selectedColor = Color.LIGHT_GRAY;
-				break;
-
-			case '0':
-				BrushPanel.selectedColor = Color.GRAY;
-				break;
-			case '-':
-				BrushPanel.selectedColor = Color.DARK_GRAY;
-				break;
-			case '=':
-				BrushPanel.selectedColor = Color.BLACK;
-				break;
-			}
-
-		}
-
-	}
-
 	public static void main(String[] args) {
 		new Tools();
 	}
 }
 
+class ColorHandler extends KeyAdapter {
+	public void keyPressed(KeyEvent e) {
+		switch (e.getKeyChar()) {
+
+		case '1':
+			BrushPanel.selectedColor = Color.RED;
+			break;
+
+		case '2':
+			BrushPanel.selectedColor = Color.ORANGE;
+			break;
+
+		case '3':
+			BrushPanel.selectedColor = Color.YELLOW;
+			break;
+
+		case '4':
+			BrushPanel.selectedColor = Color.GREEN;
+			break;
+
+		case '5':
+			BrushPanel.selectedColor = Color.CYAN;
+			break;
+
+		case '6':
+			BrushPanel.selectedColor = Color.BLUE;
+			break;
+
+		case '7':
+			BrushPanel.selectedColor = Color.MAGENTA;
+			break;
+
+		case '8':
+			BrushPanel.selectedColor = Color.PINK;
+			break;
+
+		case '9':
+			BrushPanel.selectedColor = Color.LIGHT_GRAY;
+			break;
+
+		case '0':
+			BrushPanel.selectedColor = Color.GRAY;
+			break;
+
+		case '-':
+			BrushPanel.selectedColor = Color.DARK_GRAY;
+			break;
+
+		case '=':
+			BrushPanel.selectedColor = Color.BLACK;
+			break;
+		}
+
+	}
+}
+
 class BrushPanel extends JPanel {
 	Vector<Point> pointList = new Vector<Point>();
-	static int thickness = 1, size = 1;
+	static int thickness = 1;
 
 	static Color selectedColor;
 	Graphics graphics;
@@ -131,8 +132,8 @@ class BrushPanel extends JPanel {
 
 		public void mouseClicked(MouseEvent e) {
 			graphics = getGraphics();
-
-			graphics.fillOval(e.getX(), e.getY(), size, size);
+			graphics.setColor(selectedColor);
+			graphics.fillOval(e.getX(), e.getY(), thickness, thickness);
 		}
 	}
 
@@ -186,22 +187,18 @@ class MenuPanel extends JPanel {
 			JButton button = (JButton) e.getSource();
 			if (button.getText().equals("Light")) {
 				BrushPanel.thickness = 5;
-				BrushPanel.size = 3;
 				button.setText("Medium");
 
 			} else if (button.getText().equals("Medium")) {
 				BrushPanel.thickness = 10;
-				BrushPanel.size = 5;
 				button.setText("Bold");
 
 			} else if (button.getText().equals("Bold")) {
 				BrushPanel.thickness = 20;
-				BrushPanel.size = 10;
 				button.setText("Extra");
 
 			} else if (button.getText().equals("Extra")) {
 				BrushPanel.thickness = 1;
-				BrushPanel.size = 1;
 				button.setText("Light");
 			}
 			tools.requestFocus();
