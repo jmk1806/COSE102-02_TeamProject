@@ -42,7 +42,7 @@ public class BrushPanel extends JPanel {
                 Point endPoint = pointVector.elementAt(pointVector.size() - 1);
 
                 graphics.setColor(brushColor);
-                graphics2D.setStroke(new BasicStroke(thickness, BasicStroke.CAP_ROUND, 0));
+                graphics2D.setStroke(new BasicStroke(thickness, BasicStroke.CAP_ROUND, BasicStroke.JOIN_MITER));
                 graphics2D.draw(new Line2D.Double(startPoint.getX(), startPoint.getY(), endPoint.getX(), endPoint.getY()));
             }
         });

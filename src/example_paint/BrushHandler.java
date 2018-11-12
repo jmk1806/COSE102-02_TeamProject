@@ -16,11 +16,9 @@ public class BrushHandler implements ActionListener {
         if (((JButton)e.getSource()).getText().equals("Brush")) {
             Color currentBrushColor = mainFrame.menuPanel.chosenColor.getBackground();
             mainFrame.brushPanel.setColor(currentBrushColor);
-        } 
-        else {
+        } else {
             mainFrame.brushPanel.setColor(Color.WHITE);
         }
-        
         mainFrame.requestFocus();
     }
 }

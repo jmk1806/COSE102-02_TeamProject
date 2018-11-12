@@ -4,11 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 
 public class ColorPanel extends JPanel {
-    private MainFrame mainFrame;
-    
     public ColorPanel(MainFrame mainFrame) {
-        this.mainFrame = mainFrame;
-
         ColorMouseHandler colorMouseHandler = new ColorMouseHandler(mainFrame);
 
         String keyList[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "="};
