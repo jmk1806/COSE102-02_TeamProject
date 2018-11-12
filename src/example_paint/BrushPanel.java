@@ -11,7 +11,6 @@ public class BrushPanel extends JPanel {
     public Vector<Point> pointVector = new Vector<>();
 
     public int thickness = 1;
-    public int size = 1;
 
     private Color brushColor;
 
@@ -28,7 +27,7 @@ public class BrushPanel extends JPanel {
             }
 
             public void mouseClicked(MouseEvent e) {
-                getGraphics().fillOval(e.getX(), e.getY(), size, size);
+                getGraphics().fillOval(e.getX() - thickness / 2, e.getY() - thickness / 2, thickness, thickness);
             }
         });
 
@@ -51,9 +50,5 @@ public class BrushPanel extends JPanel {
 
     public void setColor(Color newColor) {
         this.brushColor = newColor;
-    }
-
-    public Color getColor(Color backgroundColor) {
-        return brushColor;
     }
 }

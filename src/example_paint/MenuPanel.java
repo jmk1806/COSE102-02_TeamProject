@@ -12,6 +12,7 @@ public class MenuPanel extends JPanel {
     public MenuPanel(MainFrame mainFrame) {
         chosenColor = new JButton(" ");
         chosenColor.setBackground(Color.BLACK);
+        chosenColor.setEnabled(false);
 
         brushBtn = new JButton("Brush");
         eraserBtn = new JButton("Eraser");

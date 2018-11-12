@@ -7,45 +7,28 @@ import javax.swing.*;
 public class ThicknessHandler implements ActionListener {
     public MainFrame mainFrame;
 
+    private HashMap<String, String> nextThicknessMap = new HashMap<>();
     private HashMap<String, Integer> thicknessMap = new HashMap<>();
-    private HashMap<String, Integer> sizeMap = new HashMap<>();
 
     public ThicknessHandler(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
+
+        nextThicknessMap.put("Light", "Medium");
+        nextThicknessMap.put("Medium", "Bold");
+        nextThicknessMap.put("Bold", "ExtraBold");
+        nextThicknessMap.put("ExtraBold", "Light");
 
         thicknessMap.put("Light", 1);
         thicknessMap.put("Medium", 3);
         thicknessMap.put("Bold", 5);
         thicknessMap.put("ExtraBold", 10);
-
-        sizeMap.put("Light", 1);
-        sizeMap.put("Medium", 5);
-        sizeMap.put("Bold", 10);
-        sizeMap.put("ExtraBold", 20);
     }
 
     public void actionPerformed (ActionEvent e) {
         JButton button = (JButton)e.getSource();
-        String nextButtonText = "";
-
-        switch(button.getText()) {
-            case "Light":
-                nextButtonText = "Medium";
-                break;
-            case "Medium":
-                nextButtonText = "Bold";
-                break;
-            case "Bold":
-                nextButtonText = "ExtraBold";
-                break;
-            case "ExtraBold":
-                nextButtonText = "Light";
-                break;
-        }
-
+        String nextButtonText = nextThicknessMap.get(button.getText());
         button.setText(nextButtonText);
         mainFrame.brushPanel.thickness = thicknessMap.get(nextButtonText);
-        mainFrame.brushPanel.size = sizeMap.get(nextButtonText);
 
         mainFrame.requestFocus();
     }

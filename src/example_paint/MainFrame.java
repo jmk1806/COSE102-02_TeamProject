@@ -4,9 +4,9 @@ import java.awt.*;
 import javax.swing.*;
 
 public class MainFrame extends JFrame {
-    BrushPanel brushPanel;
-    MenuPanel menuPanel;
-    ColorPanel colorPanel;
+    public BrushPanel brushPanel;
+    public MenuPanel menuPanel;
+    public ColorPanel colorPanel;
     
     public MainFrame() {
         this.setTitle("Paint Example");
@@ -27,6 +27,7 @@ public class MainFrame extends JFrame {
         this.addKeyListener(new ColorKeyHandler(this));
         this.setSize(750, 500);
         this.setVisible(true);
+        this.setResizable(false);
 
         this.setFocusable(true);
         this.requestFocus();
