@@ -11,6 +11,7 @@ public class ColorMouseHandler implements ActionListener{
         this.mainFrame = mainFrame;
     }
 
+    @Override
     public void actionPerformed(ActionEvent e) {
         Color newColor = ((JButton)e.getSource()).getBackground();
 

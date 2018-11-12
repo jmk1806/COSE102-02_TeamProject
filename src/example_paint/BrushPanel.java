@@ -18,20 +18,24 @@ public class BrushPanel extends JPanel {
         this.setBackground(Color.WHITE);
 
         this.addMouseListener(new MouseAdapter() {
+            @Override
             public void mousePressed(MouseEvent e) {
                 pointVector.add(e.getPoint());
             }
 
+            @Override
             public void mouseReleased(MouseEvent e) {
                 pointVector.add(new Point(0, 0));
             }
 
+            @Override
             public void mouseClicked(MouseEvent e) {
                 getGraphics().fillOval(e.getX() - thickness / 2, e.getY() - thickness / 2, thickness, thickness);
             }
         });
 
         this.addMouseMotionListener(new MouseAdapter() {
+            @Override
             public void mouseDragged(MouseEvent e) {
             Graphics graphics = getGraphics();
             Graphics2D graphics2D = (Graphics2D)graphics;

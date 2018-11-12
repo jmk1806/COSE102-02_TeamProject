@@ -24,6 +24,7 @@ public class ThicknessHandler implements ActionListener {
         thicknessMap.put("ExtraBold", 10);
     }
 
+    @Override
     public void actionPerformed (ActionEvent e) {
         JButton button = (JButton)e.getSource();
         String nextButtonText = nextThicknessMap.get(button.getText());

@@ -25,6 +25,7 @@ public class ColorKeyHandler extends KeyAdapter {
         colorMap.put('=', Color.BLACK);
     }
 
+    @Override
     public void keyPressed(KeyEvent e) {
         char inputChar = e.getKeyChar();
 
