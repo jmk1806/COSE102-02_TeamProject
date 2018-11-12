@@ -6,10 +6,10 @@ import javax.swing.*;
 
 public class BrushHandler implements ActionListener {
 
-	private MainFrame mainFrame;
-	
+    private MainFrame mainFrame;
+    
     public BrushHandler(MainFrame mainFrame) {
-    	this.mainFrame = mainFrame;
+        this.mainFrame = mainFrame;
     }
 
     public void actionPerformed(ActionEvent e) {
