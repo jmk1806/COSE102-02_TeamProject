@@ -10,7 +10,7 @@ public class ColorMouseHandler implements ActionListener{
 	public ColorMouseHandler(MainFrame mainFrame) {
 		this.mainFrame = mainFrame;
 	}
-	@Override
+
 	public void actionPerformed(ActionEvent e) {
 		Color newColor = null;
 		
@@ -58,7 +58,6 @@ public class ColorMouseHandler implements ActionListener{
             mainFrame.menuPanel.chosenColor.setBackground(newColor);
         }
 		
-		mainFrame.setFocusable(true);
 		mainFrame.requestFocus();
 	}
 
