@@ -5,18 +5,18 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class ColorMouseHandler implements ActionListener{
-	private MainFrame mainFrame;
-	
-	public ColorMouseHandler(MainFrame mainFrame) {
-		this.mainFrame = mainFrame;
-	}
+    private MainFrame mainFrame;
+    
+    public ColorMouseHandler(MainFrame mainFrame) {
+        this.mainFrame = mainFrame;
+    }
 
-	public void actionPerformed(ActionEvent e) {
-	    Color newColor = ((JButton)e.getSource()).getBackground();
+    public void actionPerformed(ActionEvent e) {
+        Color newColor = ((JButton)e.getSource()).getBackground();
 
         mainFrame.brushPanel.setColor(newColor);
         mainFrame.menuPanel.chosenColor.setBackground(newColor);
-		
-		mainFrame.requestFocus();
-	}
+        
+        mainFrame.requestFocus();
+    }
 }
